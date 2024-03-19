@@ -8,6 +8,7 @@ import ProductCard from "./component/ProductCard";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Col, Container, Row } from 'react-bootstrap'
 import {useState, useEffect} from 'react'
+import PrivateRoute from './route/PrivateRoute'
 /**
  *
 1. 전체상품, 로그인, 상품상세페이지
@@ -32,7 +33,7 @@ function App() {
       <Routes>
         <Route path="/" element={<ProductAll/>}/>
         <Route path="/login" element={<Login setAuthenticate={setAuthenticate}/>}/>
-        <Route path="/product/:id" element={<ProductDetail/>}/>
+        <Route path="/product/:id" element={<PrivateRoute authenticate={{authenticate}}/>}/>
       </Routes>
     </div>
   );
