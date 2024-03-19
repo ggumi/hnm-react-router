@@ -3,6 +3,11 @@ import { Routes, Route} from 'react-router-dom'
 import ProductAll from "./page/ProductAll";
 import Login from "./page/Login";
 import ProductDetail from "./page/ProductDetail";
+import Navbar from "./component/Navbar";
+import ProductCard from "./component/ProductCard";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Col, Container, Row } from 'react-bootstrap'
+import {useState, useEffect} from 'react'
 /**
  *
 1. 전체상품, 로그인, 상품상세페이지
@@ -17,12 +22,16 @@ import ProductDetail from "./page/ProductDetail";
  7. 상품을 검색할 수 있다.
  */
 function App() {
+  const [authenticate, setAuthenticate]=useState(false) //true면 로그인 됨
+  useEffect(() => {
+  }, [authenticate]);
+
   return (
     <div>
       <Navbar/>
       <Routes>
         <Route path="/" element={<ProductAll/>}/>
-        <Route path="/login" element={<Login/>}/>
+        <Route path="/login" element={<Login setAuthenticate={setAuthenticate}/>}/>
         <Route path="/product/:id" element={<ProductDetail/>}/>
       </Routes>
     </div>
