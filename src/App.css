@@ -47,3 +47,11 @@
 .login{
 
 }
+.product-img{
+    display: flex;
+    justify-content: flex-end;
+}
+.add-button{
+    width:100%;
+    margin-top:10px;
+}
