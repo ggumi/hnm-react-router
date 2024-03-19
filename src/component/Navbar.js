@@ -8,7 +8,16 @@ const Navbar = () => {
   const navigate=useNavigate();
   const goToLogin=()=>{
     navigate(`/login`)
+  };
+  const search=(event)=>{
+    if (event.key === "Enter") {
+      //입력한 검색어를 읽어와서
+      let keyword = event.target.value
+      //url을 바꿔준다
+      navigate(`/?q=${keyword}`)
+    }
   }
+
   return (
       <div>
         <div className="login-button" onClick={goToLogin}>
@@ -28,7 +37,9 @@ const Navbar = () => {
             </ul>
             <div className="search-box">
               <FontAwesomeIcon icon={faSearch}/>
-              <input type="text" placeholder="제품검색"/>
+              <input type="text" placeholder="제품검색"
+                onKeyPress={(event)=>search(event)}
+              />
             </div>
         </div>
       </div>
