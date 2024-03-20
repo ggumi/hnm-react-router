@@ -8,14 +8,15 @@ const ProductAll = () => {
   const [query, setQuery] = useSearchParams();
   const getProducts = async () => {
     let searchQuery = query.get('q')||"";
-    let url = `https://my-json-server.typicode.com/gguimi/hnm-react-router/products?q=${searchQuery}`;
-    
+    let url = `https://my-json-server.typicode.com/ggumi/hnm-react-router/products?q=${searchQuery}`;
+
     let response = await fetch(url);
     let data = await response.json()
     setProductList(data);
   }
   useEffect(() => {
     getProducts()
+    console.log("productList",productList)
   }, [query])
   return (
     <div>
