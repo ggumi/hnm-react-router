@@ -7,9 +7,7 @@ const ProductCard=({item})=>{
   const showDetail=()=>{
     navigate(`/product/${item.id}`)
   }
-  const goToDetail=()=>{
 
-  }
   return <div className="card" onClick={showDetail}>
     <img  src={item?.img}/>
     <div>{item?.choice === true ?"Conscious choice":""}</div>
